@@ -29,11 +29,14 @@
 #include "HomeSpan.h" 
 #include "DEV_Sensors.h" 
 
+
+
 void setup() {
   Serial.begin(115200);
-  homeSpan.setLogLevel(1);                                // NEW - Sets Log Level to 1, which causes LOG1() messages to be output
-
-  homeSpan.begin(Category::Bridges,"HomeSpan Bridge");
+  homeSpan.setLogLevel(0);                                // NEW - Sets Log Level to 1, which causes LOG1() messages to be output
+  homeSpan.setControlPin(0);
+  homeSpan.setStatusPin(13);
+  homeSpan.begin(Category::Bridges,"TrueCO2");
  
   new SpanAccessory();  
     new Service::AccessoryInformation();

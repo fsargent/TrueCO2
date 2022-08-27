@@ -5,6 +5,10 @@
 #include <Arduino.h>
 #include <SensirionI2CScd4x.h>
 #include <Wire.h>
+#include <FeatherS2.h>
+
+// Initialise the FeatherS2 library
+FeatherS2 fs2 = FeatherS2();
 
 uint16_t sample_frequency = 5000;
 uint32_t timer = 0;                                // keep track of time since last update
@@ -97,6 +101,7 @@ struct DEV_CarbonDioxideSensor : Service::CarbonDioxideSensor  {     // A standa
 
     Serial.print("Configuring CO2 Sensor");   // initialization message
     Serial.print("\n");
+    fs2.DotStar_SetPixelColor( 0, 128, 0 );
 
   } // end constructor
 
@@ -108,12 +113,14 @@ struct DEV_CarbonDioxideSensor : Service::CarbonDioxideSensor  {     // A standa
           if (co2level->getVal() > 1000) {
             co2detected->setVal(1);
             LOG0("High CO2 levels detected!\n");
+              fs2.DotStar_SetPixelColor( 128, 0, 0 );
           }
         }
 
         if (co2 < 1000 && co2detected->getVal() == 1) {
           co2detected->setVal(0);
           LOG0("CO2 back to normal.\n");
+           fs2.DotStar_SetPixelColor( 0, 128, 0 );
         }
         co2level->setVal(co2);                            // set the new temperature; this generates an Event Notification and also resets the elapsed time
 
