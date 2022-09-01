@@ -2,11 +2,33 @@
 
 https://github.com/HomeSpan/HomeSpan
 
-To flash, follow these [instructions](https://github.com/HomeSpan/HomeSpan/blob/master/docs/GettingStarted.md)
 
 Designed to use a UM FeatherS2 with Pimironi SCD41 CO2 sensor.
 
 To setup as configured, follow the instructions below:
+
+1. Enable power
+2. Hold down the "Boot" Button until the blue light flashes quickly.
+3. Push the boot button twice. The blue light should flash three times, wait, then repeat
+4. Hold the boot button to enable Wifi Access Point Setup.
+5. Use a device to join "Homespan Setup"
+6. Enter your wifi SSID + Password
+7. Now the device is on your wifi, add it to homekit. Open Homekit and click "Add Accessory"
+8. In Homekit, Scan the QR code in the repo, or click "More Options" 
+9. IF more options: Select TrueCO2, and use the pairing code "044-00-440"
+
+Done!
+
+How to flash:
+Base documentation is here: To flash, follow these [instructions](https://github.com/HomeSpan/HomeSpan/blob/master/docs/GettingStarted.md)
+
+1. Download an install the Arduino SDK
+2. Open Arduino, go to Tools -> Boards -> Board Manager. Search for ESP32 and install.
+3. Tools -> Boards -> ESP32 Arduino -> UM FeatherS2
+4. Tools -> Port -> /dev/tty.usb... (should be obvious)
+5. Open the Serial Monitor and restart the board to verify it's working properly. You can follow the serial monitor instructions to configure the device too.
+
+Checkout this repo, open the .ino file and hit Sketch -> Upload to upload!
 
 # HomeSpan User Guide
 
