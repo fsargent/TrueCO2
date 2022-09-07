@@ -3,7 +3,7 @@
 https://github.com/HomeSpan/HomeSpan
 
 
-Designed to use a UM FeatherS2 with Pimironi SCD41 CO2 sensor.
+Designed to use a [UM FeatherS2](https://unexpectedmaker.com/shop/feathers2-esp32-s2) with [Pimironi SCD41 CO2 sensor](https://shop.pimoroni.com/products/scd41-co2-sensor-breakout).
 
 To setup as configured, follow the instructions below:
 
